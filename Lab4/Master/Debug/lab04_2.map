@@ -1,0 +1,438 @@
+Archive member included because of file (symbol)
+
+d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                              d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o (exit)
+d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                              ./DIO_Prog.o (__do_copy_data)
+d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                              ./EX_INT_Prog.o (__do_clear_bss)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+LOAD ./DIO_Prog.o
+LOAD ./EX_INT_Prog.o
+LOAD ./GIE_Prog.o
+LOAD ./main.o
+LOAD d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+LOAD d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5\libc.a
+LOAD d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xd68
+ *(.vectors)
+ .vectors       0x00000000       0x54 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000054        0x0 linker stubs
+ *(.trampolines*)
+                0x00000054                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000054                __ctors_start = .
+ *(.ctors)
+                0x00000054                __ctors_end = .
+                0x00000054                __dtors_start = .
+ *(.dtors)
+                0x00000054                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000054        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x00000054                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000054        0xc d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000060       0x16 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00000060                __do_copy_data
+ .init4         0x00000076       0x10 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000076                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000086        0x8 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ *(.init9)
+ *(.text)
+ .text          0x0000008e        0x4 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+                0x0000008e                __vector_1
+                0x0000008e                __vector_12
+                0x0000008e                __bad_interrupt
+                0x0000008e                __vector_6
+                0x0000008e                __vector_3
+                0x0000008e                __vector_11
+                0x0000008e                __vector_13
+                0x0000008e                __vector_17
+                0x0000008e                __vector_19
+                0x0000008e                __vector_7
+                0x0000008e                __vector_5
+                0x0000008e                __vector_4
+                0x0000008e                __vector_9
+                0x0000008e                __vector_2
+                0x0000008e                __vector_15
+                0x0000008e                __vector_8
+                0x0000008e                __vector_14
+                0x0000008e                __vector_10
+                0x0000008e                __vector_16
+                0x0000008e                __vector_18
+                0x0000008e                __vector_20
+ .text          0x00000092        0x0 ./DIO_Prog.o
+ .text          0x00000092        0x0 ./EX_INT_Prog.o
+ .text          0x00000092        0x0 ./GIE_Prog.o
+ .text          0x00000092        0x0 ./main.o
+ .text          0x00000092        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text          0x00000092        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000092        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000092                . = ALIGN (0x2)
+ *(.text.*)
+ .text.DIO_Vid_Set_Pin_Direction
+                0x00000092      0x200 ./DIO_Prog.o
+                0x00000092                DIO_Vid_Set_Pin_Direction
+ .text.DIO_Vid_Set_Pin_Value
+                0x00000292      0x200 ./DIO_Prog.o
+                0x00000292                DIO_Vid_Set_Pin_Value
+ .text.DIO_Vid_Get_Pin_Value
+                0x00000492      0x108 ./DIO_Prog.o
+                0x00000492                DIO_Vid_Get_Pin_Value
+ .text.DIO_Vid_Set_Port_Direction
+                0x0000059a       0xf2 ./DIO_Prog.o
+                0x0000059a                DIO_Vid_Set_Port_Direction
+ .text.DIO_Vid_Set_Port_Value
+                0x0000068c       0x82 ./DIO_Prog.o
+                0x0000068c                DIO_Vid_Set_Port_Value
+ .text.DIO_Vid_Get_Port_Value
+                0x0000070e       0x98 ./DIO_Prog.o
+                0x0000070e                DIO_Vid_Get_Port_Value
+ .text.DIO_7Seg_init
+                0x000007a6       0x7e ./DIO_Prog.o
+                0x000007a6                DIO_7Seg_init
+ .text.DIO_7Seg_Write_Number
+                0x00000824      0x11e ./DIO_Prog.o
+                0x00000824                DIO_7Seg_Write_Number
+ .text.DIO_7Seg_Write_Value
+                0x00000942       0x82 ./DIO_Prog.o
+                0x00000942                DIO_7Seg_Write_Value
+ .text.DIO_7Seg_Write_Char
+                0x000009c4       0x7a ./DIO_Prog.o
+                0x000009c4                DIO_7Seg_Write_Char
+ .text.EX_INT0_INIT
+                0x00000a3e       0xdc ./EX_INT_Prog.o
+                0x00000a3e                EX_INT0_INIT
+ .text.EX_INT1_INIT
+                0x00000b1a       0xdc ./EX_INT_Prog.o
+                0x00000b1a                EX_INT1_INIT
+ .text.EX_INT2_INIT
+                0x00000bf6       0x64 ./EX_INT_Prog.o
+                0x00000bf6                EX_INT2_INIT
+ .text.EX_SET_INT0
+                0x00000c5a       0x2c ./EX_INT_Prog.o
+                0x00000c5a                EX_SET_INT0
+ .text.EX_SET_INT1
+                0x00000c86       0x2c ./EX_INT_Prog.o
+                0x00000c86                EX_SET_INT1
+ .text.EX_SET_INT2
+                0x00000cb2       0x2c ./EX_INT_Prog.o
+                0x00000cb2                EX_SET_INT2
+ .text.GIE_Enable
+                0x00000cde       0x1c ./GIE_Prog.o
+                0x00000cde                GIE_Enable
+ .text.GIE_Disable
+                0x00000cfa       0x1c ./GIE_Prog.o
+                0x00000cfa                GIE_Disable
+ .text.main     0x00000d16       0x30 ./main.o
+                0x00000d16                main
+ .text.Test     0x00000d46       0x1e ./main.o
+                0x00000d46                Test
+ .text.libgcc   0x00000d64        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000d64        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000d64        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+                0x00000d64                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000d64        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00000d64                exit
+                0x00000d64                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000d64        0x4 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000d68                _etext = .
+
+.data           0x00800060        0xc load address 0x00000d68
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ .data          0x00800060        0x0 ./DIO_Prog.o
+ .data          0x00800060        0x0 ./EX_INT_Prog.o
+ .data          0x00800060        0x0 ./GIE_Prog.o
+ .data          0x00800060        0x0 ./main.o
+ .data          0x00800060        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800060        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800060        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.data*)
+ .data.Seg      0x00800060        0x1 ./DIO_Prog.o
+                0x00800060                Seg
+ *(.rodata)
+ *(.rodata*)
+ .rodata.C.0.1574
+                0x00800061        0xa ./DIO_Prog.o
+ *(.gnu.linkonce.d*)
+                0x0080006c                . = ALIGN (0x2)
+ *fill*         0x0080006b        0x1 00
+                0x0080006c                _edata = .
+                0x0080006c                PROVIDE (__data_end, .)
+
+.bss            0x0080006c        0x6
+                0x0080006c                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080006c        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o
+ .bss           0x0080006c        0x0 ./DIO_Prog.o
+ .bss           0x0080006c        0x0 ./EX_INT_Prog.o
+ .bss           0x0080006c        0x0 ./GIE_Prog.o
+ .bss           0x0080006c        0x0 ./main.o
+ .bss           0x0080006c        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x0080006c        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x0080006c        0x0 d:/cse/2 nd cse/second term/micro/labs/winavr/set/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ .bss.INT0_Function_PTR
+                0x0080006c        0x2 ./EX_INT_Prog.o
+                0x0080006c                INT0_Function_PTR
+ .bss.INT1_Function_PTR
+                0x0080006e        0x2 ./EX_INT_Prog.o
+                0x0080006e                INT1_Function_PTR
+ .bss.INT2_Function_PTR
+                0x00800070        0x2 ./EX_INT_Prog.o
+                0x00800070                INT2_Function_PTR
+ *(COMMON)
+                0x00800072                PROVIDE (__bss_end, .)
+                0x00000d68                __data_load_start = LOADADDR (.data)
+                0x00000d74                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800072        0x0
+                0x00800072                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800072                PROVIDE (__noinit_end, .)
+                0x00800072                _end = .
+                0x00800072                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000     0x1104
+ *(.stab)
+ .stab          0x00000000      0x7f8 ./DIO_Prog.o
+ .stab          0x000007f8      0x5c4 ./EX_INT_Prog.o
+                                0x6a8 (size before relaxing)
+ .stab          0x00000dbc      0x168 ./GIE_Prog.o
+                                0x24c (size before relaxing)
+ .stab          0x00000f24      0x1e0 ./main.o
+                                0x444 (size before relaxing)
+
+.stabstr        0x00000000      0xe8a
+ *(.stabstr)
+ .stabstr       0x00000000      0xe8a ./DIO_Prog.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(lab04_2.elf elf32-avr)
+LOAD linker stubs
