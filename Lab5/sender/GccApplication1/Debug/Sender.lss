@@ -1,0 +1,215 @@
+
+Sender.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000134  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  00000134  000001a8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000001aa  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001dc  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000048  00000000  00000000  00000218  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000006ca  00000000  00000000  00000260  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000615  00000000  00000000  0000092a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002f3  00000000  00000000  00000f3f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000bc  00000000  00000000  00001234  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003b3  00000000  00000000  000012f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000113  00000000  00000000  000016a3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000038  00000000  00000000  000017b6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 5f 00 	jmp	0xbe	; 0xbe <__vector_1>
+   8:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+   c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  10:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  14:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  18:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  1c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  20:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  24:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  28:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  2c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  30:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  34:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  38:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  3c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  44:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  48:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  4c:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+  50:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e4 e3       	ldi	r30, 0x34	; 52
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a2 36       	cpi	r26, 0x62	; 98
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+  76:	0e 94 56 00 	call	0xac	; 0xac <main>
+  7a:	0c 94 98 00 	jmp	0x130	; 0x130 <_exit>
+
+0000007e <__bad_interrupt>:
+  7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000082 <uart_init>:
+	// Wait for data to be received (RXC0 flag)
+	while (!(UCSRA & (1 << RXC)));
+
+	// Read data from receive register (UDR0)
+	return UDR;
+}
+  82:	10 bc       	out	0x20, r1	; 32
+  84:	87 e6       	ldi	r24, 0x67	; 103
+  86:	89 b9       	out	0x09, r24	; 9
+  88:	8a b1       	in	r24, 0x0a	; 10
+  8a:	88 61       	ori	r24, 0x18	; 24
+  8c:	8a b9       	out	0x0a, r24	; 10
+  8e:	80 b5       	in	r24, 0x20	; 32
+  90:	86 60       	ori	r24, 0x06	; 6
+  92:	80 bd       	out	0x20, r24	; 32
+  94:	08 95       	ret
+
+00000096 <uart_transmit>:
+  96:	5d 9b       	sbis	0x0b, 5	; 11
+  98:	fe cf       	rjmp	.-4      	; 0x96 <uart_transmit>
+  9a:	8c b9       	out	0x0c, r24	; 12
+  9c:	08 95       	ret
+
+0000009e <INT_EN>:
+
+void INT_EN()
+{
+	MCUCR |= (1<<ISC01); //falling edge
+  9e:	85 b7       	in	r24, 0x35	; 53
+  a0:	82 60       	ori	r24, 0x02	; 2
+  a2:	85 bf       	out	0x35, r24	; 53
+	GICR  |= (1<<INT0); //En int0
+  a4:	8b b7       	in	r24, 0x3b	; 59
+  a6:	80 64       	ori	r24, 0x40	; 64
+  a8:	8b bf       	out	0x3b, r24	; 59
+  aa:	08 95       	ret
+
+000000ac <main>:
+	
+}
+char x = 0x40;
+int main() {
+	DDRD &= ~(1<<2); //pD2 input
+  ac:	81 b3       	in	r24, 0x11	; 17
+  ae:	8b 7f       	andi	r24, 0xFB	; 251
+  b0:	81 bb       	out	0x11, r24	; 17
+	uart_init();
+  b2:	0e 94 41 00 	call	0x82	; 0x82 <uart_init>
+	INT_EN();
+  b6:	0e 94 4f 00 	call	0x9e	; 0x9e <INT_EN>
+	sei();
+  ba:	78 94       	sei
+  bc:	ff cf       	rjmp	.-2      	; 0xbc <main+0x10>
+
+000000be <__vector_1>:
+
+	while (1){}
+}
+
+ISR(INT0_vect)
+{
+  be:	1f 92       	push	r1
+  c0:	0f 92       	push	r0
+  c2:	0f b6       	in	r0, 0x3f	; 63
+  c4:	0f 92       	push	r0
+  c6:	11 24       	eor	r1, r1
+  c8:	2f 93       	push	r18
+  ca:	3f 93       	push	r19
+  cc:	4f 93       	push	r20
+  ce:	5f 93       	push	r21
+  d0:	6f 93       	push	r22
+  d2:	7f 93       	push	r23
+  d4:	8f 93       	push	r24
+  d6:	9f 93       	push	r25
+  d8:	af 93       	push	r26
+  da:	bf 93       	push	r27
+  dc:	ef 93       	push	r30
+  de:	ff 93       	push	r31
+	if(x ==0x7a)
+  e0:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  e4:	8a 37       	cpi	r24, 0x7A	; 122
+  e6:	19 f4       	brne	.+6      	; 0xee <__vector_1+0x30>
+	{
+		x= 0x40;
+  e8:	80 e4       	ldi	r24, 0x40	; 64
+  ea:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+	}
+	x++;
+  ee:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  f2:	8f 5f       	subi	r24, 0xFF	; 255
+  f4:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+	uart_transmit(x);
+  f8:	0e 94 4b 00 	call	0x96	; 0x96 <uart_transmit>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  fc:	2f ed       	ldi	r18, 0xDF	; 223
+  fe:	83 e9       	ldi	r24, 0x93	; 147
+ 100:	94 e0       	ldi	r25, 0x04	; 4
+ 102:	21 50       	subi	r18, 0x01	; 1
+ 104:	80 40       	sbci	r24, 0x00	; 0
+ 106:	90 40       	sbci	r25, 0x00	; 0
+ 108:	e1 f7       	brne	.-8      	; 0x102 <__vector_1+0x44>
+ 10a:	00 c0       	rjmp	.+0      	; 0x10c <__vector_1+0x4e>
+ 10c:	00 00       	nop
+	_delay_ms(1500);
+}
+ 10e:	ff 91       	pop	r31
+ 110:	ef 91       	pop	r30
+ 112:	bf 91       	pop	r27
+ 114:	af 91       	pop	r26
+ 116:	9f 91       	pop	r25
+ 118:	8f 91       	pop	r24
+ 11a:	7f 91       	pop	r23
+ 11c:	6f 91       	pop	r22
+ 11e:	5f 91       	pop	r21
+ 120:	4f 91       	pop	r20
+ 122:	3f 91       	pop	r19
+ 124:	2f 91       	pop	r18
+ 126:	0f 90       	pop	r0
+ 128:	0f be       	out	0x3f, r0	; 63
+ 12a:	0f 90       	pop	r0
+ 12c:	1f 90       	pop	r1
+ 12e:	18 95       	reti
+
+00000130 <_exit>:
+ 130:	f8 94       	cli
+
+00000132 <__stop_program>:
+ 132:	ff cf       	rjmp	.-2      	; 0x132 <__stop_program>
